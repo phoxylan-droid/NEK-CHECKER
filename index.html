@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEK CHECKER · by @samvir1</title>
+  <meta name="description" content="Animated multi-platform account checker dashboard" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+
+  <header class="top">
+    <div class="brand">
+      <span class="logo-pulse"></span>
+      <div>
+        <h1>NEK <span>CHECKER</span></h1>
+        <p class="sub">ULTRA · FAST · ANIMATED · by @samvir1</p>
+      </div>
+    </div>
+    <nav>
+      <button class="nav-btn active" data-view="home">Home</button>
+      <button class="nav-btn" data-view="checkers">Checkers</button>
+      <button class="nav-btn" data-view="run">Run</button>
+      <a class="nav-btn ghost" href="https://t.me/samvir1" target="_blank" rel="noopener">Telegram</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section id="view-home" class="view active">
+      <div class="hero">
+        <div class="hero-text">
+          <p class="eyebrow">OPERATOR DASHBOARD</p>
+          <h2>All platforms.<br /><span class="grad">One surface.</span></h2>
+          <p class="lead">Stream · VPN · Gaming · AI · Mail — pick a checker, paste combos, drop proxies, watch live results with full capture lines.</p>
+          <div class="hero-cta">
+            <button class="btn primary" data-go="checkers">Explore Checkers</button>
+            <button class="btn outline" data-go="run">Start Check</button>
+          </div>
+          <div class="stats-row" id="home-stats">
+            <div class="stat"><b id="stat-count">—</b><span>Checkers</span></div>
+            <div class="stat"><b>40+</b><span>CPM target</span></div>
+            <div class="stat"><b>LIVE</b><span>API status</span></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="ring r1"></div>
+          <div class="ring r2"></div>
+          <div class="ring r3"></div>
+          <div class="core">⚡</div>
+        </div>
+      </div>
+
+      <div class="cat-strip" id="cat-strip"></div>
+    </section>
+
+    <!-- CHECKERS -->
+    <section id="view-checkers" class="view">
+      <div class="panel-head">
+        <h2>Checker Matrix</h2>
+        <input id="search" type="search" placeholder="Filter checkers…" />
+      </div>
+      <div class="filters" id="filters"></div>
+      <div class="checker-scroll" id="checker-list"></div>
+    </section>
+
+    <!-- RUN -->
+    <section id="view-run" class="view">
+      <div class="run-grid">
+        <div class="card">
+          <h3>1 · Platform</h3>
+          <select id="sel-checker"></select>
+          <p class="hint" id="sel-hint">Select a checker</p>
+        </div>
+        <div class="card">
+          <h3>2 · Combos</h3>
+          <textarea id="combos" placeholder="email:password&#10;one per line"></textarea>
+          <label class="file-lab">or import .txt<input type="file" id="combo-file" accept=".txt,.csv" /></label>
+        </div>
+        <div class="card">
+          <h3>3 · Proxies</h3>
+          <textarea id="proxies" placeholder="ip:port or user:pass@ip:port&#10;optional"></textarea>
+          <label class="file-lab">or import proxies<input type="file" id="proxy-file" accept=".txt" /></label>
+        </div>
+      </div>
+      <div class="run-bar">
+        <button class="btn primary lg" id="btn-start">▶ START CHECK</button>
+        <button class="btn danger lg" id="btn-stop" disabled>■ STOP</button>
+        <span id="run-status">idle</span>
+      </div>
+
+      <div class="progress-card">
+        <div class="progress-title">Scan Progress</div>
+        <div class="bar"><i id="bar-fill"></i></div>
+        <div class="prog-grid">
+          <div>Checked <b id="p-checked">0/0</b></div>
+          <div>Hits <b id="p-hits">0</b></div>
+          <div>Free <b id="p-free">0</b></div>
+          <div>Bad <b id="p-bad">0</b></div>
+          <div>Errors <b id="p-err">0</b></div>
+          <div>CPM <b id="p-cpm">0</b></div>
+        </div>
+      </div>
+
+      <div class="log-card">
+        <div class="log-head">
+          <span>Live log</span>
+          <button class="btn xs" id="btn-dl">Download hits</button>
+        </div>
+        <pre id="log"></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>NEK CHECKER · Vercel ready · by @samvir1</span>
+    <span id="api-dot" class="dot off">API</span>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
